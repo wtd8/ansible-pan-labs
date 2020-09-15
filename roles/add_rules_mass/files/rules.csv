@@ -1,0 +1,7 @@
+rule_name,description,source_zone,destination_zone,source_name,source_name_type,source_ip,destination_name,destination_name_type,destination_ip,application,service
+Web Browsing Rule,Allow Outbound HTTP,inside,outside,inside_range,ip-netmask,172.31.128.0/18,,,any,web-browsing,application-default
+SSL Browsing Rule,Allow Outbound SSL,inside,outside,inside_range,ip-netmask,172.31.128.0/18,,,any,ssl,application-default
+SSH Outbound_s3,Allow Outbound SSH,inside,outside,server_3,ip-netmask,172.31.128.10,,,any,ssh,application-default
+SSH Outbound_s4,Allow Outbound SSH,inside,outside,server_4,ip-netmask,172.31.128.11,,,any,ssh,application-default
+SSH Outbound_s5,Allow Outbound SSH,inside,outside,server_5,ip-netmask,172.31.128.12,,,any,ssh,application-default
+SSH Outbound_s5,Allow Outbound SSH,inside,outside,server_6,ip-netmask,172.31.128.13,,,any,ssh,application-default

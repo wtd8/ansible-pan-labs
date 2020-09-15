@@ -1,0 +1,5 @@
+---
+- include_tasks: aws_vpn_info.yml
+- include_tasks: aws_bgp_info.yml
+- include_tasks: aws_routetable_info.yml
+- include_tasks: aws_routetable_propagate.yml

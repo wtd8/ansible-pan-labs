@@ -1,0 +1,12 @@
+- hosts: localhost
+  connection: local
+  gather_facts: False
+  vars_files:
+    - "vars/backup_restore_vars.yml"
+    - "vars/secrets.yml"
+    - "vars/advanced_bgp_vars.yml"
+    - "vars/common_vars.yml"
+  roles:
+    - role: PaloAltoNetworks.paloaltonetworks
+    - { role: palo_backup_restore, when: backup_configuration == 'true' }
+    - palo_bgp_advanced

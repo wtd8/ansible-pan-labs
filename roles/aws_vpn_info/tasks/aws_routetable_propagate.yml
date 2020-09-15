@@ -1,0 +1,12 @@
+- name: Enable Route Propagation
+  ec2_vpc_route_table:
+    lookup: 'id'
+    vpc_id: "{{ vpc_id }}"
+    route_table_id: "{{ route_table_id }}"
+    region: "{{ aws_region }}"
+    propagating_vgw_ids: "{{ aws_vpn_gw }}"
+  register: routetable_facts
+  
+- name: Debug Route Table Propagating
+  debug:
+    msg: "{{ routetable_facts }}"

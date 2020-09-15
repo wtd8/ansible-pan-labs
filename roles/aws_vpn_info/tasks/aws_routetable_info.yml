@@ -1,0 +1,18 @@
+- name: Check all Route Tables
+  ec2_vpc_route_table_info:
+    filters:
+      vpc-id: "{{ vpc_id }}"
+    region: "{{ aws_region }}"
+  register: route_facts
+      
+- name: Debug Route Facts
+  debug:
+    msg: "{{ route_facts }}"
+        
+- name: Get Route Table ID
+  set_fact:
+    route_table_id: "{{ route_facts.route_tables[0].id }}" 
+  
+- name: Debug Route Table ID
+  debug:
+    msg: "Route Table {{ route_table_id }}"

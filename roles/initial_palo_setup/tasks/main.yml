@@ -1,0 +1,6 @@
+---
+# tasks file for initial_setup
+- name: Include task list in play only if the condition is true
+  include_tasks: "add_panorama.yml" 
+  when: panorama == 'true'
+- include_tasks: palo_alto_setup.yml

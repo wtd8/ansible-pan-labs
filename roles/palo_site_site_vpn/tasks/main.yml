@@ -1,0 +1,2 @@
+---
+- include_tasks: build_ike_ipsec_tunnel.yml

@@ -1,0 +1,21 @@
+- name: Gather VPN Facts
+  ec2_vpc_vpn_info:
+    region: "{{aws_region }}"
+  register: awsvpn_facts
+  
+- name: Debug AWS VPN Facts
+  debug:
+    msg: "{{ awsvpn_facts }}"
+    
+- name: Get State of VPN Connections
+  set_fact:
+    aws_vpn_state: "{{ 'unset' if  ( awsvpn_facts.vpn_connections == [] ) else 'set' }}"
+  
+- name: Get State of VPN Connection State
+  set_fact:
+    aws_vpn_state: '{{ awsvpn_facts.vpn_connections[0].state }}'
+  when: "'{{ aws_vpn_state }}' == 'set'"
+  
+- name: Debug AWS VPN Connection State
+  debug:
+    msg: "{{ aws_vpn_state }}"

@@ -1,0 +1,2 @@
+---
+- include_tasks: advanced_bgp.yml

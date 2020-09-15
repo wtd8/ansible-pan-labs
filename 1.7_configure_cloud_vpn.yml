@@ -1,0 +1,24 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: False
+  vars_files:
+    - "vars/aws_vars.yml"
+    - "vars/bgp_vars.yml"
+    - "vars/common_vars.yml"
+    - "vars/palo_vars.yml"
+  
+  tasks:
+    - include_role:
+        name: aws_initial_checks
+    - include_role:
+        name: { role: aws_vpn_setup, when: aws_vpn_state != 'available' }
+    - include_role:
+        name: aws_vpn_info
+    - include_role:
+        name: palo_site_site_vpn
+    - include_role:
+        name: { role: palo_configure_bgp, when: bgp == 'true' }
+    - include_role:
+        name: palo_add_rules
+...

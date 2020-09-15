@@ -1,0 +1,9 @@
+[fw:children]
+pan
+
+[pan]
+siduser250.pan.mysidlabs.com private_ip=172.31.0.18
+
+[webservers]
+Web1 private_ip=172.31.19.21
+Web2 private_ip=172.31.20.204

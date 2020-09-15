@@ -1,0 +1,68 @@
+- name: Main BGP Configuration
+  panos_bgp:
+    provider: '{{ provider }}'
+    state: '{{ state }}'
+    router_id: '{{ local_bgprouter_id }}'
+    local_as: '{{ local_bgp_as }}'
+    allow_redist_default_route: '{{ allow_redist_default_route }}'
+    as_format: '{{ as_format }}'
+    enforce_first_as: '{{ enforce_first_as }}'
+    graceful_restart_enable: '{{ graceful_restart_enable }}'
+    install_route: '{{ install_route }}'
+    reject_default_route: '{{ reject_default_route }}'
+    vr_name: '{{ vr_name }}'
+    install_route: yes
+    commit: false
+       
+- name: BGP Peer Group
+  panos_bgp_peer_group:
+    provider: '{{ provider }}'
+    state: '{{ state }}'
+    name: '{{ bgp_peergroup_name }}'
+    enable: true
+    type: '{{ peering_type }}'
+    aggregated_confed_as_path: true
+    soft_reset_with_stored_info: false
+    vr_name: '{{ vr_name }}'
+    commit: false
+       
+- name: BGP Peer Configuration
+  panos_bgp_peer:
+    provider: '{{ provider }}'
+    state: '{{ state }}'
+    peer_group: '{{ bgp_peergroup_name }}'
+    name: '{{ item.bgp_remote_name }}'
+    enable: true
+    local_interface: '{{ item.local_interface }}'
+    local_interface_ip: '{{ item.local_ip }}'
+    peer_address_ip: '{{ item.bgp_peer_ip }}'
+    peer_as: '{{ bgp_peer_as }}'
+    vr_name: '{{ vr_name }}'
+    commit: false
+  with_items:
+    - "{{ bgp_peers }}"
+    
+- name: BGP Redistribution Profile
+  panos_redistribution:
+    provider: '{{ provider }}'
+    state: '{{ state }}'
+    name: '{{ redistribution_profile }}'
+    vr_name: '{{ vr_name }}'
+    filter_destination: '{{ redistribution_filter }}'
+    action: 'redist'
+    priority: 10
+    filter_type: '{{ redistribution_routes }}'
+    commit: false
+       
+- name: BGP Redistribution Policy
+  panos_bgp_redistribute:
+    provider: '{{ provider }}'
+    state: '{{ state }}'
+    name: '{{ redistribution_profile  }}'
+    enable: true
+    commit: false
+    address_family_identifier: ipv4
+    set_origin: incomplete
+    vr_name: '{{ vr_name }}'
+    commit: false
+       

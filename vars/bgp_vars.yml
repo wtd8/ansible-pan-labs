@@ -1,0 +1,6 @@
+bgp: 'true'
+bgp_peergroup_name: 'AmazonBGP'
+bgp_remote_name: 'AWSBGPPeer'
+bgp_redistribute: '172.16.2.0/24'
+redistribution_profile: 'Redist_Inside'
+redistribution_routes: 'connect'

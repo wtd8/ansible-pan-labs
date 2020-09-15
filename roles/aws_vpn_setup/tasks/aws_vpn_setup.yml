@@ -1,0 +1,57 @@
+## This is run only if VPN is not already setup in AWS
+## Create IPSec VGW in AWS
+- name: Create a new vgw attached to a specific VPC
+  ec2_vpc_vgw:
+    state: '{{ state }}'
+    region: '{{ aws_region }}'
+    vpc_id: '{{ vpc_id }}'
+    name: '{{ aws_vpngw_name  }}'
+    asn: '{{ bgp_peer_as }}'
+    type: ipsec.1
+    validate_certs: no
+  register: created_vgw
+  
+- name: Debug  Local BGP Router ID
+  debug:
+    msg: "{{ created_vgw }}"
+    
+- name: Get VPN GW ID
+  set_fact:
+    aws_vpn_gw: "{{ created_vgw.vgw.id }}"
+
+## Create Customer GW in AWS
+- name: Create Customer Gateway
+  ec2_customer_gateway:
+    bgp_asn: '{{ local_bgp_as }}'
+    ip_address: '{{ local_bgprouter_id }}'
+    name: '{{ vpcvpn_filter }}'
+    region: '{{ aws_region }}'
+    validate_certs: 'no'
+  register: created_cgw
+  
+- name: Debug  Local BGP Router ID
+  debug:
+    msg: "{{ created_cgw }}"
+    
+- name: Get VPN GW ID
+  set_fact:
+    aws_vpn_cw: "{{ created_cgw.gateway.customer_gateway.customer_gateway_id }}"
+
+## Create the VPN Connection
+- name: create a VPN connection
+  ec2_vpc_vpn:
+    state: '{{ state }}'
+    vpn_gateway_id: '{{ aws_vpn_gw }}'
+    customer_gateway_id: '{{ aws_vpn_cw }}'
+    connection_type: ipsec.1
+    region: '{{ aws_region }}'
+    delay: 30
+    wait_timeout: 600
+    validate_certs: no
+    
+- name: Wait for VGW to Be Assigned with Route Table
+  wait_for:
+    delay: 20
+    timeout: 0
+
+

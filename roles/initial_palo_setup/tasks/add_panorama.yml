@@ -1,0 +1,6 @@
+- name: Set Panorama
+  paloaltonetworks.panos.panos_mgtconfig:
+    provider: '{{ provider }}'
+    panorama_primary: "{{ panorama_primary }}"
+    panorama_secondary: "{{ panorama_secondary }}"
+    commit: False

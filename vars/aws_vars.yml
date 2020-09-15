@@ -1,0 +1,10 @@
+## Variables used regardless if VPN created in AWS manually or automatic via this playbook
+vpcvpn_filter: 'Home'
+aws_region: 'us-east-2'
+
+## Variable only used when AWS site-to-site is created. If already created these will be over written later.
+local_bgp_as: '64555'
+aws_vpngw_name: 'AWS_VPN_GW-East2'
+vpc_id: 'vpc-0c10e9916285a445e'
+bgp_peer_as: '64512'
+local_bgprouter_id: '75.4.53.130'

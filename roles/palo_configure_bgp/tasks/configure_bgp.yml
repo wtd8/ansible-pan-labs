@@ -1,0 +1,56 @@
+- name: Main BGP Configuration
+  panos_bgp:
+    provider: '{{ provider }}'
+    state: '{{ state }}'
+    router_id: '{{ local_bgprouter_id }}'
+    local_as: '{{ local_bgp_as }}'
+    vr_name: '{{ vr_name }}'
+    install_route: yes
+    commit: false
+    
+- name: BGP Peer Group
+  panos_bgp_peer_group:
+    provider: '{{ provider }}'
+    state: '{{ state }}'
+    name: '{{ bgp_peergroup_name }}'
+    enable: true
+    aggregated_confed_as_path: true
+    soft_reset_with_stored_info: false
+    vr_name: '{{ vr_name }}'
+    commit: false
+    
+- name: BGP Peer
+  panos_bgp_peer:
+    provider: '{{ provider }}'
+    state: '{{ state }}'
+    peer_group: '{{ bgp_peergroup_name }}'
+    name: '{{ bgp_remote_name }}'
+    enable: true
+    local_interface: '{{ tunnel_if_name }}'
+    local_interface_ip: '{{ tunnel_ip }}/30'
+    peer_address_ip: '{{ bgp_peer_ip }}'
+    peer_as: '{{ bgp_peer_as }}'
+    vr_name: '{{ vr_name }}'
+    commit: false
+    
+- name: BGP Redistribution Policy
+  panos_bgp_redistribute:
+    provider: '{{ provider }}'
+    state: '{{ state }}'
+    name: '{{ bgp_redistribute }}'
+    enable: true
+    address_family_identifier: ipv4
+    set_origin: incomplete
+    vr_name: '{{ vr_name }}'
+    commit: false
+    
+- name: BGP Redistribution Profile
+  panos_redistribution:
+    provider: '{{ provider }}'
+    state: '{{ state }}'
+    name: '{{ redistribution_profile }}'
+    vr_name: '{{ vr_name }}'
+    action: 'redist'
+    priority: 10
+    filter_type: '{{ redistribution_routes }}'
+    commit: false
