@@ -11,4 +11,4 @@
     description: "'{{ log_type }} Forwarding"
     log_type: '{{ log_type }}'
     syslog_profiles: ['{{ syslog_server_profile_name }}']
-    filter: 
+    filter: 'all'
