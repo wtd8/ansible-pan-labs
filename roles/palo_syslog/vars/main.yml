@@ -1,5 +1,5 @@
 # Log Forwarding Profile vars
-log_forward_profile: 'default2'
+log_forward_profile: 'default'
 
 # Log Forwarding Profile Match List vars
 # log_type must be one of: traffic, threat, wildfire, url, data, gtp, tunnel, auth, sctp. 
