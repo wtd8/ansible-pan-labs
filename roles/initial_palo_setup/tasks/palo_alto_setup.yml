@@ -1,3 +1,13 @@
+# Create Zones
+- name: create DMZ zone on a firewall
+  panos_zone:
+    provider: '{{ provider }}'
+    zone: "{{ item }}"
+    mode: 'layer3'
+    zone_profile: 'strict'
+    state: present
+  loop: "{{ zones }}"
+
 # Create interfaces
 - name: Eth1/1 Configuration
   panos_interface:
@@ -6,7 +16,6 @@
     mode: "layer3"
     enable_dhcp: yes
     zone_name: "inside"
-    create_default_route: "yes"
 
 - name: Eth1/2 Configuration
   panos_interface:

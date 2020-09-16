@@ -36,3 +36,6 @@ snmp_profile: 'snmp_profile_1'
 snmp_server_name: 'snmp_v2_server'
 snmp_manager: '10.1.4.3'
 snmp_community: 'secret'
+zones:
+  - inside
+  - outside
