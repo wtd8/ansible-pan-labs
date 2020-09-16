@@ -1,3 +1,22 @@
+# Create interfaces
+- name: Eth1/1 Configuration
+  panos_interface:
+    provider: '{{ provider }}'
+    if_name: "ethernet1/1"
+    mode: "layer3"
+    enable_dhcp: yes
+    zone_name: "inside"
+    create_default_route: "yes"
+
+- name: Eth1/2 Configuration
+  panos_interface:
+    provider: '{{ provider }}'
+    if_name: "ethernet1/2"
+    mode: "layer3"
+    enable_dhcp: yes
+    zone_name: "outside"
+
+# Setup dns, ntp and banner
 - name: set dns, ntp, and panorama but don't commit
   paloaltonetworks.panos.panos_mgtconfig:
     provider: '{{ provider }}'
