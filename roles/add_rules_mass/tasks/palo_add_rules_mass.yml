@@ -44,6 +44,7 @@
     destination_ip: ['{{ rules1.destination_name}}']
     application: ['{{ rules1.application }}']
     service: ['{{ rules1.service }}']
+    log_setting: ['{{ rules1.log_setting }}']
     action: '{{ fwaction }}'
     commit: '{{ commit }}'
   loop: '{{ rules.list }}'
@@ -65,6 +66,7 @@
     destination_ip: ['{{ rules2.destination_ip }}']
     application: ['{{ rules2.application }}']
     service: ['{{ rules2.service }}']
+    log_setting: ['{{ rules2.log_setting }}']
     action: '{{ fwaction }}'
     commit: '{{ commit }}'
   loop: '{{ rules.list }}'
@@ -86,6 +88,7 @@
     destination_ip: '{{ rules3.destination_name }}'
     application: '{{ rules3.application }}'
     service: '{{ rules3.service }}'
+    log_setting: ['{{ rules3.log_setting }}']
     action: '{{ fwaction }}'
     commit: '{{ commit }}'
   loop: '{{ rules.list }}'
@@ -107,6 +110,7 @@
     destination_ip: '{{ rules4.destination_ip }}'
     application: '{{ rules4.application }}'
     service: '{{ rules4.service }}'
+    log_setting: ['{{ rules4.log_setting }}']
     action: '{{ fwaction }}'
     commit: '{{ commit }}'
   loop: '{{ rules.list }}'
