@@ -210,4 +210,4 @@
     provider: '{{ provider }}'
     name: '{{ remove_addr }}'
     state: 'absent'
-    commit: false
+    commit: true
