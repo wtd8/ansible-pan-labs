@@ -1,5 +1,3 @@
-username: 'siduser150'
-password: 'Ita2006!'
 ## Be sure path is writable
 backup_path : '/home/siduser150/ansible-pan-labs/'
 ## Set to true to backup config
