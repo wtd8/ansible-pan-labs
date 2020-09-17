@@ -2,7 +2,7 @@
   connection: local
   uri:
     validate_certs: no
-    url: 'https://{{palo_alto}}/api/?type=keygen&user={{provider.username}}&password={{provider.password}}'
+    url: 'https://{{provider.ip_address}}/api/?type=keygen&user={{provider.username}}&password={{provider.password}}'
     return_content: yes
     method: GET
   register: key_string
@@ -20,7 +20,7 @@
   check_mode: no
   uri:
     validate_certs: no
-    url: "https://{{palo_alto}}/api/?type=config&action=show&key={{key_list.matches[0].key}}"
+    url: "https://{{provider.ip_address}}/api/?type=config&action=show&key={{key_list.matches[0].key}}"
     return_content: yes
     method: GET
   register: configuration_string
@@ -32,7 +32,7 @@
       
 - name: Show Date
   debug:
-    msg: "Palo Alto Host {{palo_alto}} Configuration Saved in {{backup_path}} at {{datetime}}"
+    msg: "Palo Alto Host {{provider.ip_address}} Configuration Saved in {{backup_path}} at {{datetime}}"
   
 - name: Remove Config Header and Save at Backup Path
   connection: local
