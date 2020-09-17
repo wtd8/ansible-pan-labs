@@ -1,5 +1,5 @@
 - name: import configuration
-  paloaltoneworks.panos.panos_import:
+  paloaltonetworks.panos.panos_import:
     ip_address: '{{palo_alto}}'
     username: '{{username}}'
     password: '{{password}}'
