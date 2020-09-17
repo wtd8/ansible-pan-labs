@@ -18,5 +18,6 @@
       service: ['application-default']
       action: 'deny'
       location: 'bottom'
+      log_setting: 'default'
       commit: 'yes'
 ...
