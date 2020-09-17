@@ -1,8 +1,6 @@
 - hosts: localhost
   connection: local
   gather_facts: False
-  vars_files:
-    - "vars/backup_restore_vars.yml"
- 
+
   roles:
     - palo_backup_restore
