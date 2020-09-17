@@ -1,5 +1,5 @@
 ## Be sure path is writable
-backup_path : '/home/siduser150/ansible-pan-labs/'
+backup_path : '~/ansible-pan-labs/'
 ## Set to true to backup config
 backup_configuration: 'false'
 ## Insert name of backup file to restore. If blank no restoration will occur
