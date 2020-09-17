@@ -1,8 +1,8 @@
 ## Be sure path is writable
 backup_path : '/home/siduser150/ansible-pan-labs/'
 ## Set to true to backup config
-backup_configuration: 'false'
+backup_configuration: 'true'
 ## Insert name of backup file to restore. If blank no restoration will occur
 ## For restore ensure backup_configuration = true. Config will be backed up prior to restore of file
-restore_file: 'backup-2020-09-17-01-21.xml'
-restore_configuration: 'true'
+restore_file: ''
+restore_configuration: 'false'
