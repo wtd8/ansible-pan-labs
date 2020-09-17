@@ -3,9 +3,9 @@ password: 'Ita2006!'
 ## Be sure path is writable
 backup_path : '~/ansible-pan-labs/'
 ## Set to true to backup config
-backup_configuration: 'true'
+backup_configuration: 'false'
 palo_alto: 'siduser150.pan.mysidlabs.com'
 ## Insert name of backup file to restore. If blank no restoration will occur
 ## For restore ensure backup_configuration = true. Config will be backed up prior to restore of file
-restore_file: ''
-restore_configuration: 'false'
+restore_file: '~/ansible-pan-labs/siduser150.pan.mysidlabs.com-2020-09-17-00-41.xml'
+restore_configuration: 'true'
