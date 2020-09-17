@@ -1,5 +1,5 @@
 - name: import configuration
-  panos_import:
+  paloaltoneworks.panos.panos_import:
     ip_address: '{{palo_alto}}'
     username: '{{username}}'
     password: '{{password}}'
@@ -9,7 +9,7 @@
   register: result
     
 - name: load configuration
-  panos_loadcfg:
+  paloaltonetworks.panos.panos_loadcfg:
     ip_address: '{{palo_alto}}'
     username: '{{username}}'
     password: '{{password}}'
