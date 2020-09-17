@@ -5,7 +5,6 @@
     password: '{{password}}'
     file: '{{backup_path}}{{restore_file}}'
     category: 'configuration'
-    validate_certs: 'false'
   register: result
     
 - name: load configuration
