@@ -1,7 +1,7 @@
 username: 'siduser150'
 password: 'Ita2006!'
 ## Be sure path is writable
-backup_path : '~/ansible-pan-labs'
+backup_path : '~/ansible-pan-labs/'
 ## Set to true to backup config
 backup_configuration: 'true'
 palo_alto: 'siduser150.pan.mysidlabs.com'
