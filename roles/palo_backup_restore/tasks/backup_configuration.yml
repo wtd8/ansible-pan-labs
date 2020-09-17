@@ -2,7 +2,7 @@
   connection: local
   uri:
     validate_certs: no
-    url: 'https://{{palo_alto}}/api/?type=keygen&user={{username}}&password={{password}}'
+    url: 'https://{{palo_alto}}/api/?type=keygen&user={{provider.username}}&password={{provider.password}}'
     return_content: yes
     method: GET
   register: key_string
