@@ -16,6 +16,10 @@
     provider: '{{ provider }}'
     all_details: yes
   register: palo_security_rules_pre
+  
+- name: Show Palo Alto Addresses
+  debug:
+    msg: '{{ palo_security_rules_pre }}'
 
 - name: Get All Security Rule Names - Before Changes
   set_fact:
