@@ -24,7 +24,7 @@
 - name: Get All Security Rule Names - Before Changes
   set_fact:
     orginal_rule_names: '{{ item.rule_name}}'
-  loop: '{{ palo_security_rules_pre.policy }}'
+  loop: '{{ palo_security_rules_pre.rule_details }}'
 
 #### Get All PreChange NAT Rules
 - name: Get all NAT Rules from Firewall before Changes
@@ -89,7 +89,7 @@
     wildfire_analysis: '{{ item.wildfire_analysis | default(omit, true) }}'
     state: present
     commit: false
-  loop: '{{ palo_security_rules_pre.policy }}'
+  loop: '{{ palo_security_rules_pre.rule_details }}'
   loop_control:
     label: '{{ item.rule_name }}'
   when: (remove_addr in item.destination_ip) or (remove_addr in item.source_ip)
@@ -202,7 +202,7 @@
     state: present
     disabled: true
     commit: false
-  loop: '{{ palo_security_rules_post.policy }}'
+  loop: '{{ palo_security_rules_post.rule_details }}'
   loop_control:
     label: '{{ item.rule_name }}'
   when: (item.destination_ip == []) or (item.source_ip == [])
