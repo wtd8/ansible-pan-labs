@@ -9,7 +9,7 @@
 - name: Show Palo Alto Addresses
   debug:
     msg: '{{ palo_address_groups }}'
-    verbosity: 2
+    verbosity: 4
 
 #### Get All PreChange Security Rules
 - name: Get all Security Rules
@@ -21,7 +21,7 @@
 - name: Show Palo Alto security rules
   debug:
     msg: '{{ palo_security_rules_pre }}'
-    verbosity: 2
+    verbosity: 4
 
 - name: Get All Security Rule Names - Before Changes
   set_fact:
