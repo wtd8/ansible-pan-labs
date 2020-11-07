@@ -17,14 +17,16 @@
     all_details: yes
   register: palo_security_rules_pre
   
-- name: Show Palo Alto Addresses
-  debug:
-    msg: '{{ palo_security_rules_pre }}'
+#- name: Show Palo Alto Addresses
+#  debug:
+#    msg: '{{ palo_security_rules_pre }}'
 
 - name: Get All Security Rule Names - Before Changes
   set_fact:
     orginal_rule_names: '{{ item.rule_name}}'
   loop: '{{ palo_security_rules_pre.rule_details }}'
+#"rule_details" was previously "policy" in palo alto collection 1.1.
+#playbook updated for compatibility with palo alto collection 2.2.
 
 #### Get All PreChange NAT Rules
 - name: Get all NAT Rules from Firewall before Changes
