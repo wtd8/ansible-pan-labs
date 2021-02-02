@@ -1,3 +1,4 @@
+---
 - name: Show all
   paloaltonetworks.panos.panos_facts:
     provider: '{{ provider }}'
@@ -42,5 +43,4 @@
 - name: Print Current Firewall Version to screen
   debug:
     msg: "Firewall Version {{ session.ansible_facts.ansible_net_version }}"
-    
-
+...

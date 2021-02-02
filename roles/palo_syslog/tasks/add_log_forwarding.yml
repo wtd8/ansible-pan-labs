@@ -1,3 +1,4 @@
+---
 - name: Create log forwarding profile
   paloaltonetworks.panos.panos_log_forwarding_profile:
     provider: '{{ provider }}'
@@ -12,3 +13,4 @@
     log_type: '{{ log_type }}'
     syslog_profiles: ['{{ syslog_server_profile_name }}']
     filter: 'All Logs'
+...

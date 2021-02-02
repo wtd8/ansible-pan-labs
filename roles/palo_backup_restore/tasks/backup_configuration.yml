@@ -1,3 +1,4 @@
+---
 - name: Generate API Key
   connection: local
   uri:
@@ -39,3 +40,4 @@
   copy:
     content: "{{configuration_string['content']  | regex_replace('<response.*<result>') | regex_replace('</result></response>')}}"
     dest: '{{backup_path}}backup-{{datetime}}.xml'
+...

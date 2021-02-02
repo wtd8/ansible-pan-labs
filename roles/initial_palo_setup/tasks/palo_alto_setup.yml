@@ -1,3 +1,4 @@
+---
 # Create Zones
 - name: create DMZ zone on a firewall
   paloaltonetworks.panos.panos_zone:
@@ -67,3 +68,4 @@
     manager: '{{ snmp_manager }}'
     community: '{{ snmp_community }}'
     snmp_profile: '{{ snmp_profile_name }}'
+...

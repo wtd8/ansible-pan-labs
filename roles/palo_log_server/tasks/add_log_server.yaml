@@ -1,3 +1,4 @@
+---
 - name: Syslog server profile
   paloaltonetworks.panos.panos_syslog_profile:
     provider: '{{ provider }}'
@@ -10,3 +11,4 @@
     name: '{{ syslog_server_name}}'
     server: '{{ syslog_server_ip }}'
     syslog_port: '{{ syslog_port }}'
+...

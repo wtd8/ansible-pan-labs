@@ -1,3 +1,4 @@
+---
 panorama: 'false'
 state: 'present'
 dns_server_primary: "8.8.8.8"
@@ -39,3 +40,4 @@ snmp_community: 'secret'
 zones:
   - inside
   - outside
+...

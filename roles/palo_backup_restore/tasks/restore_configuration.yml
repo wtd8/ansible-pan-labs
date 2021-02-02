@@ -1,3 +1,4 @@
+---
 - name: import configuration
   paloaltonetworks.panos.panos_import:
     ip_address: '{{provider.ip_address}}'
@@ -13,3 +14,4 @@
     username: '{{provider.username}}'
     password: '{{provider.password}}'
     file: "{{result.filename}}"
+...

@@ -1,3 +1,4 @@
+---
 ##### Read the CSV file###
 - name: "Reading Firewall Rules from CSV"
   read_csv:
@@ -117,4 +118,4 @@
   loop_control:
     loop_var: rules4
   when: (rules4.source_name != "") and (rules4.destination_name == "")
-    
+...

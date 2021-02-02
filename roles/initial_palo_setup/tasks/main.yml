@@ -1,3 +1,4 @@
 ---
 # tasks file for initial_setup
 - include_tasks: palo_alto_setup.yml
+...

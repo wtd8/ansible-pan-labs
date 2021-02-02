@@ -1,3 +1,4 @@
+---
 - name: Get vr info
   paloaltonetworks.panos.panos_virtual_router_facts:
     provider: '{{ provider }}'
@@ -7,3 +8,4 @@
 - name: Show VR Info
   debug:
     var: result
+...

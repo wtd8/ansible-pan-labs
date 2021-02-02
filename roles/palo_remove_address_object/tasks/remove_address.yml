@@ -1,3 +1,4 @@
+---
 #### Get a list of all Security Groups
 - name: Get all address groups and their config
   paloaltonetworks.panos.panos_object_facts:
@@ -211,7 +212,6 @@
     label: '{{ item.rule_name }}'
   when: (item.destination_ip == []) or (item.source_ip == [])
 
-
 #### Final Step is to Remove the Address Object
 - name: Remove the Address Object
   paloaltonetworks.panos.panos_address_object:
@@ -219,3 +219,4 @@
     name: '{{ remove_addr }}'
     state: 'absent'
     commit: true
+...

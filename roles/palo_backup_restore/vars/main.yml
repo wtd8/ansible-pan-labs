@@ -1,3 +1,4 @@
+---
 ## Be sure path is writable
 backup_path : '/home/siduser<ID>/ansible-pan-labs/'
 ## Set to true to backup config
@@ -6,3 +7,4 @@ backup_configuration: 'true'
 ## For restore ensure backup_configuration = true. Config will be backed up prior to restore of file
 restore_file: ''
 restore_configuration: 'false'
+...

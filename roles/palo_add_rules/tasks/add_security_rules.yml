@@ -1,3 +1,4 @@
+---
 - name: Add Security Rules
   panos_security_rule:
     provider: '{{ provider }}'
@@ -11,3 +12,4 @@
     action: 'allow'
     location: 'top'
     commit: false
+...
