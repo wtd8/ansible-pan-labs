@@ -11,8 +11,8 @@ timezone: "US/Central"
 domain: 'domain'
 snmp_version: 'v2c'
 snmp_profile_name: 'test'
-admin_username: 'administrator'
-admin_password: 'password'
+admin_username: 'siduser112'
+admin_password: 'RoscoRosco'
 superuser: 'yes'
 login_banner: |
           +-------------------------------------------------------------+
