@@ -3,3 +3,4 @@ collections:
   - name: paloaltonetworks.panos
     version: '*'
     source: https://galaxy.ansible.com
+...
